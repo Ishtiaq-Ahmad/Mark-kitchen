@@ -1,0 +1,47 @@
+$themeColor: #fbbe36;
+$dashboardBackgrounColor: #f0f0fa;
+$themeSecondayColor: #ca2129;
+
+@mixin main_div {
+    padding-top: 80px;
+    padding-left: 260px;
+    padding-right: 25px
+}
+.dashboard_div{
+@include main_div();
+background-color: $dashboardBackgrounColor ;
+
+
+}
+
+// *************User Chart********************
+.userchart{
+    padding: 15px;
+    background-color: #ffff;
+    box-shadow: 2px 2px 19px 5px rgba(0,0,0,0.29);
+    -webkit-box-shadow: 2px 2px 19px 5px rgba(0,0,0,0.29);
+    -moz-box-shadow: 2px 2px 19px 5px rgba(0,0,0,0.29);
+    border-radius: 4px;
+}
+.percentage_chart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.text_icon{
+    
+    background-color: #09ac32;
+    border-radius: 15px;
+    width: 6vw;
+}
+
+// ******************Order Table **************************
+.order_table{
+    background-color: #ffff;
+    height: 350px;
+    width: 100%;
+    padding: 15px;
+}
+.dashboard_table{
+    margin-top: 20px;
+}

@@ -1,0 +1,4 @@
+@import './dashboard';
+.info_div{
+    @include main_div();
+}

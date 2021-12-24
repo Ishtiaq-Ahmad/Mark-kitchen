@@ -1,0 +1,4 @@
+@import './dashboard';
+.order_div{
+    @include main_div();
+}

@@ -1,0 +1,4 @@
+@import './dashboard';
+.menu_div{
+    @include main_div();
+}
