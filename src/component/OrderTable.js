@@ -50,17 +50,22 @@ const rows = [
 
 const OrderTable = () => {
     return (
-        <div className="order_table" >
-        <Typography variant="h6" gutterBottom component="div">
+      <div className="_order_head">
+        <Typography variant="h6" gutterBottom component="div" >
           RECENTLY PLACED ORDERS
         </Typography>
+      
+        <div className="order_table" >
+        
       <DataGrid
+       
         rows={rows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
       />
+    </div>
     </div>
     )
 }

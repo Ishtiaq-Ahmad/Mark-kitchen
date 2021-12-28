@@ -4,8 +4,8 @@ import Chart from "../component/charts/UserChart";
 import Grid from "@mui/material/Grid";
 import DailyeSale from "../component/charts/DailyeSale";
 import TotalOrder from "../component/charts/TotalOrder";
-import OrderTable from '../component/OrderTable'
-
+import OrderTable from "../component/OrderTable";
+import RecentOrder from '../component/RecentOrder'
 
 const Dashboard = () => {
   return (
@@ -22,10 +22,19 @@ const Dashboard = () => {
         </Grid>
       </Grid>
       <div className="dashboard_table">
-<OrderTable/>
+        <OrderTable />
       </div>
-  
+      <div style={{marginTop:'35px'}}>
+<Grid container spacing={2} >
+        <Grid item xs={6}>
+          <RecentOrder />
+        </Grid>
+       
+      </Grid>
+      </div>
+      
     </div>
+
   );
 };
 

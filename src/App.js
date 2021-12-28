@@ -4,8 +4,10 @@ import Dashboard from './view/Dashboard';
 import Menu from './view/Menu';
 import Customers from './view/Customers';
 import Order from './view/Order';
-import Info from './view/Info'
-import { Routes, Route } from "react-router-dom";
+import Info from './view/Info';
+import MenuList from './component/MenuList';
+import Categories from './component/Categories'
+import { Routes, Route} from "react-router-dom";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         {/* <Route exact path = "/" element ={<Home/>}/> */}
         <Route path= "/"  element={<Dashboard/>} />
         <Route path= "/menu"  element={<Menu/>} />
+        <Route path="/menu/categories" element={<Menu/>}/>
+        <Route path="/menu/list" element={<MenuList/>}/>
         <Route path= "/customers"  element={<Customers/>} />
         <Route path= "/order"  element={<Order/>} />
         <Route path= "/info"  element={<Info/>} />

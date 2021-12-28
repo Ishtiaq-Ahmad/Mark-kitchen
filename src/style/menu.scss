@@ -1,4 +1,18 @@
 @import './dashboard';
+$themeColor: #fbbe36;
 .menu_div{
     @include main_div();
+    // background-color: #f0f0fa;
+    // height: 100vh;
+
 }
+.product_price{
+    background-color: $themeColor;
+    border-radius: 5px;
+    padding: 5px;
+}
+.name_price{
+    display: flex;
+    justify-content: space-between;
+}
+

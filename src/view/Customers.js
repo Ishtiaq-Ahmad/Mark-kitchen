@@ -1,9 +1,10 @@
 import React from 'react'
 import '../style/cusomters.scss'
+import CustomerList from '../component/CustomerList'
 const Customers = () => {
     return (
         <div className="customer_div">
-            i am customer
+            <CustomerList/>
         </div>
     )
 }
