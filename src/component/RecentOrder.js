@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import Cereal from '../assets/images/cereal.jpg'
 import Noodle from '../assets/images/noodles.jfif'
 import Sandwich from '../assets/images/sandwich.jfif'
+import { Link } from "react-router-dom";
 
 const foodItem = [
     {
@@ -47,15 +48,16 @@ const RecentOrder = () => {
     return (
         <div style={{background: '#fff', marginBottom:'40px', borderRadius:"4px"}}>
         <div className="order_head" >
-              <Typography variant="h6" component="div" gutterBottom>
-       RECENT ORDERS REQUESTED
-      </Typography>
-       <Button variant="contained" style={{
+              <Typography variant="h6" component="div" gutterBottom> RECENT ORDERS REQUESTED</Typography>
+      
+      <Link to="/order"> 
+      <Button variant="contained" style={{
           float: "right",
           margin: "10px",
           color: "black",
           backgroundColor: "#fbbe36",
         }} >View All</Button>
+        </Link> 
        </div>
        <Divider  />
        
