@@ -59,7 +59,7 @@ const RecentOrder = () => {
        </div>
        <Divider  />
        
-       <div style={{padding:'20px'}}>
+       <div style={{padding:'25px'}}>
        <Grid container spacing={2}>
         <Grid item xs={6}>
            <Typography variant="h6" component="div" gutterBottom>
@@ -82,7 +82,7 @@ const RecentOrder = () => {
                 return (
                     <div  > 
                     <Divider className="food_detail" />
-                  <Grid container spacing={2}>
+                  <Grid container spacing={2} key={item.food_id}>
         <Grid item xs={6}>
            <span style={{display:'flex', alignItems:"center"}}>
          <Avatar

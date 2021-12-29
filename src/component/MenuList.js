@@ -156,7 +156,7 @@ const MenuList = () => {
                       hover
                       role="checkbox"
                       tabIndex={-1}
-                      key={row.product_name}
+                      key={row.product_id}
                     >
                       {columns.map((column) => {
                         const value = row[column.id];

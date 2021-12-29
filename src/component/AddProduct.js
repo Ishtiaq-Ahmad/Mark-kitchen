@@ -113,6 +113,7 @@ const AddProduct = () => {
             rows={3}
           />
           <div className="food_image">
+          
             <Grid container spacing={2}>
               <Grid item xs={5}>
                 <input
