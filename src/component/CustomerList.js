@@ -105,7 +105,7 @@ const CustomerList = () => {
   return (
     <div>
       <Typography variant="h6" gutterBottom component="div">
-        PRODUCT LIST
+        CUSTOMERS LIST
       </Typography>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <TableContainer sx={{ maxHeight: 440 }}>

@@ -1,9 +1,12 @@
 import React from 'react'
 import '../style/order.scss'
+import FavourtiteOrders from '../component/FavourtiteOrders'
+import OrderList from '../component/OrderList'
 const Order = () => {
     return (
         <div className="order_div">
-            i am order
+            <FavourtiteOrders/>
+            <OrderList/>
         </div>
     )
 }

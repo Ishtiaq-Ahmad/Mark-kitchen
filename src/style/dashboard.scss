@@ -5,11 +5,13 @@ $themeSecondayColor: #ca2129;
 @mixin main_div {
     padding-top: 80px;
     padding-left: 260px;
-    padding-right: 25px
+    padding-right: 25px;
+    padding-bottom: 50px;
+    background-color: $dashboardBackgrounColor ;
 }
 .dashboard_div{
 @include main_div();
-background-color: $dashboardBackgrounColor ;
+
 
 
 }
