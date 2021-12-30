@@ -12,6 +12,25 @@ import Grilled from '../assets/images/grilled.jpg';
 import Dumplings from '../assets/images/dumplings.jpg';
 import "../style/menu.scss";
 import Grid from "@mui/material/Grid";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import Divider from "@mui/material/Divider";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
+import AddProduct from "./AddProduct";
+import AddCategory from './AddCategory'
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 500,
+  bgcolor: "background.paper",
+  border: "2px solid #fbbe36",
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 2,
+};
 
 export const categoryList = [
   {
@@ -59,11 +78,49 @@ export const categoryList = [
 ];
 
 const Categories = () => {
+    const [open, setOpen] = React.useState(false);
+     const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   return (
     <div style={{ padding:"20px"}}>
     <Typography variant="h4" gutterBottom component="div">
           Categories
         </Typography>
+        <Divider />
+      <Button
+        onClick={handleOpen}
+        variant="contained"
+        startIcon={<AddCircleOutlineIcon />}
+        style={{
+          float: "right",
+          marginTop: "15px",
+          color: "black",
+          backgroundColor: "#fbbe36",
+        }}
+      >
+        Add Category
+      </Button>
+       <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <AddCategory />
+        </Box>
+      </Modal>
     <Grid container spacing={6}>
       {categoryList.map((item) => {
         return ( 

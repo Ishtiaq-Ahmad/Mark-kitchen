@@ -8,6 +8,7 @@ import MessageIcon from "@mui/icons-material/Message";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import User from "../assets/images/user.jfif";
 import GirlUser from "../assets/images/girl_user.jfif";
+import '../style/info.scss'
 
 const feedback = [
   {
@@ -16,8 +17,7 @@ const feedback = [
     cusotmer_food: "Grilled Sandwich",
     order_data: "February 24, 2022",
     customer_rating: 3,
-    cusotmer_feedback:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+    cusotmer_feedback:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     customer_message: 16,
     cusotmer_pin: 3,
   },
@@ -27,8 +27,7 @@ const feedback = [
     cusotmer_food: "Italian Pizza",
     order_data: "February 25, 2022",
     customer_rating: 5,
-    cusotmer_feedback:
-      "Lorem Ipsum Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+    cusotmer_feedback: "Lorem Ipsum Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     customer_message: 53,
     cusotmer_pin: 12,
   },
@@ -48,12 +47,14 @@ const CustomerReview = () => {
               background: "#ffff",
               padding: "25px",
               marginBottom: "20px",
+              borderRadius: '10px'
             }}
           >
             <Avatar
+            className="user_avatar"
               alt="Remy Sharp"
               src={item.cusotmer_pic}
-              sx={{ width: 44, height: 44 }}
+              // sx={{ width: 44, height: 44 }}
             />
             <div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
