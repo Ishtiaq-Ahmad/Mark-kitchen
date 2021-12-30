@@ -6,6 +6,8 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import Grid from "@mui/material/Grid";
+import Button from '@mui/material/Button';
+import SaveIcon from '@mui/icons-material/Save';
 
 const AddProduct = () => {
   const [_image, set_Image] = useState("");
@@ -132,8 +134,16 @@ const AddProduct = () => {
               </Grid>
             </Grid>
           </div>
+         
         </div>
+         
       </div>
+       <Button variant="contained" startIcon={<SaveIcon />} style={{
+          float: "right",
+          margin: "7px",
+          color: "black",
+          backgroundColor: "#fbbe36",
+        }}>Save</Button>
     </div>
   );
 };

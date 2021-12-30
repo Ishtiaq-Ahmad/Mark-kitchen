@@ -15,28 +15,28 @@ const FavourtiteOrders = () => {
         </Typography></div>
       <Divider />
       <Grid container spacing={12} style={{padding:"20px"}} >
-        <Grid item xs={6} sm={3}  >
+        <Grid item xs={12} sm={6} md={4} lg ={3} >
           <Typography variant="h6" component="div" gutterBottom style={{textAlign:'center'}}> Pizza</Typography>
             <div style={{margin:'20px'}}>
                 <CircularProgressbar value={49} text={`${49}%`} strokeWidth={5}
            styles={buildStyles({ textColor: "black",pathColor: "#fbbe36", marginLeft:'20px', marginRight:'40px'})}/>
             </div>
           </Grid>
-        <Grid item xs={6} sm={3}>
-          <Typography variant="h6" component="div" gutterBottom style={{textAlign:'center'}}> Mexican Noodles</Typography>
+        <Grid item xs={12} sm={6} md={4} lg ={3}>
+          <Typography variant="h6" component="div" gutterBottom style={{textAlign:'center'}}> Noodles</Typography>
          <div style={{margin:'20px'}}>
           <CircularProgressbar value={22} text={`${22}%`} strokeWidth={5}
           styles={buildStyles({ textColor: "black",pathColor: "#ca2129"})} />
         </div>
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid item xs={12} sm={6} md={4} lg ={3}>
           <Typography variant="h6" component="div" gutterBottom style={{textAlign:'center'}}> Spicy Sylad</Typography>
           <div style={{margin:'20px'}}>
                <CircularProgressbar value={87} text={`${87}%`} strokeWidth={5}
           styles={buildStyles({ textColor: "black",pathColor: "green"})} />
           </div>
           </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid item xs={12} sm={6} md={4} lg ={3}>
           <Typography variant="h6" component="div" gutterBottom style={{textAlign:'center'}}> French Fries</Typography>
           <div style={{margin:'20px'}}>
               <CircularProgressbar value={40} text={`${40}%`} strokeWidth={5} 

@@ -15,4 +15,15 @@ $themeColor: #fbbe36;
     display: flex;
     justify-content: space-between;
 }
-
+.card{
+    
+    box-shadow: 2px 2px 19px 5px rgba(0,0,0,0.29) !important;
+    -webkit-box-shadow: 2px 2px 19px 5px rgba(0,0,0,0.29) !important;
+    -moz-box-shadow: 2px 2px 19px 5px rgba(0,0,0,0.29) !important;
+    transition: transform 4.5s ease;
+    border-radius: 5px !important;
+    &:hover{
+        transform: scale(1.07);
+        border-radius: 10px;
+    }
+}

@@ -146,7 +146,7 @@ const Menu = () => {
         <ListItemIcon>
           <InfoIcon style={{color:'black'}}/>
         </ListItemIcon>
-        <ListItemText primary="Info" style={{color:'black'}} />
+        <ListItemText primary="Customer Review" style={{color:'black'}} />
       </ListItemButton>
       </Link>
     </List>
