@@ -6,11 +6,8 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
-// import picGif from "../../assets/images/loginGif.gif";
 import EmailIcon from "@mui/icons-material/Email";
 import { Routes, Route, Link,useNavigate  } from "react-router-dom";
-// import { login } from "../../utils/helpers";
-// import NodeContext from "../../Context/auth/authContext";
 import '../style/login.scss';
 import _Login  from '../assets/images/service.png'
 
