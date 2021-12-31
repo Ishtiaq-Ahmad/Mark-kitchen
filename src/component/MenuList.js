@@ -16,6 +16,14 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import AddProduct from "./AddProduct";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+
 
 const style = {
   position: "absolute",
@@ -39,60 +47,71 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const columns = [
-  { id: "product_id", label: "Produt ID", minWidth: 170 },
-  { id: "product_name", label: "Product Name", minWidth: 100 },
+  { id: "product_id", label: "Produt ID", minWidth: 150 },
+  { id: "product_name", label: "Product Name", minWidth: 190 },
   {
     id: "quantity",
     label: "Quantity",
-    minWidth: 170,
-    align: "right",
+    minWidth: 150,
+    // align: "right",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
     id: "status",
     label: "Status",
-    minWidth: 170,
-    align: "right",
+    minWidth: 150,
+    // align: "right",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
     id: "price",
     label: "Price",
-    minWidth: 170,
-    align: "right",
+    minWidth: 150,
+    // align: "right",
+    format: (value) => value.toFixed(2),
+  },
+   {
+    id: "edit",
+    label: "Edit",
+    minWidth: 150,
+    // align: "right",
+    format: (value) => value.toFixed(2),
+  },
+   {
+    id: "deltete",
+    label: "Delete",
+    minWidth: 150,
+    // align: "right",
     format: (value) => value.toFixed(2),
   },
 ];
 
-function createData(product_id, product_name, quantity, status, price) {
+function createData(product_id, product_name, quantity, status, price, edit, deltete) {
   //   const price = quantity / status;
-  return { product_id, product_name, quantity, status, price };
+  return { product_id, product_name, quantity, status, price, edit, deltete };
 }
 
-const rows = [
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-  createData("01475", "French Fries", 1324, "In Stock", 200),
-];
+
 const MenuList = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [open, setOpen] = React.useState(false);
+  const [_open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const _handleClose = () => setOpen(false);
+  const [state, setState] = React.useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+
+const { vertical, horizontal, open } = state;
+  const handleClick = (newState) => () => {
+    setState({ open: true, ...newState });
+  };
+   const handleClose = () => {
+    setState({ ...state, open: false });
+  };
+  
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -102,6 +121,39 @@ const MenuList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+
+  const edit_button =(
+<Button
+        // onClick={handleOpen}
+        variant="contained"
+        size='small'
+        style={{color: "black",backgroundColor: "#fbbe36",}}>Edit</Button>
+)
+const delete_button = (
+<Button
+        onClick={handleClick({
+       vertical: 'top',
+          horizontal: 'center',
+        })}
+        variant="contained"
+        size='small'
+        style={{color: "#ffff",backgroundColor: "#ca2129",}}>Delete</Button>
+)
+
+const rows = [
+  createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button),
+       createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button),
+       createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button),
+       createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button), 
+       createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button), 
+       createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button), 
+      createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button), 
+      createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button), 
+      createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button),
+       createData("01475", "French Fries", 1324, "In Stock", 200, edit_button, delete_button),
+  
+];
   return (
     <div className="menu_div">
       <Typography variant="h6" gutterBottom component="div">
@@ -122,8 +174,8 @@ const MenuList = () => {
         Add Product
       </Button>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={_open}
+        onClose={_handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -184,6 +236,21 @@ const MenuList = () => {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        onClose={handleClose}
+        // message="Do you want to reject this Order?"
+        key={vertical + horizontal}
+      >
+      <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
+    Do you want to Delete this Product?
+    <div style={{display:'flex', justifyContent:'space-between', marginTop:'10px'}}> 
+        <Button variant="contained" size='small' style={{background:'#ffff', color:'black'}} >Yes</Button>
+        <Button variant="contained" size='small' style={{background:'#ffff', color:'black'}}>No</Button>
+         </div>
+  </Alert>
+      </Snackbar>
     </div>
   );
 };

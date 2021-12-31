@@ -110,13 +110,13 @@ const RecentOrder = () => {
                         src={item.food_image}
                         sx={{ width: 30, height: 30 }}
                       />
-                      <Typography variant="body1" component="div" gutterBottom>
+                      <Typography variant="body1" component="div" gutterBottom style={{marginLeft:'5px'}}>
                         {item.food_name}
                       </Typography>
                     </span>
                   </Grid>
                   <Grid item xs={3}>
-                    <Typography variant="body1" component="div" gutterBottom>
+                    <Typography variant="body1" component="div" gutterBottom >
                       ${item.food_price}
                     </Typography>
                   </Grid>

@@ -11,6 +11,25 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { styled } from "@mui/material/styles";
+import Button from '@mui/material/Button';
+import Modal from "@mui/material/Modal";
+import AddProduct from "./AddProduct";
+import Box from "@mui/material/Box";
+import OrderDetail from './OrderDeatail'
+import Snackbar from '@mui/material/Snackbar';
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 550,
+  bgcolor: "background.paper",
+  border: "2px solid #fbbe36",
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 2,
+};
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -20,62 +39,57 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const columns = [
-  { id: "order_id", label: "Oorder ID", minWidth: 100 },
-  { id: "order_name", label: "Order Name", minWidth: 170 },
+  { id: "order_id", label: "Order ID", minWidth: 90, align:"center" },
+  { id: "order_name", label: "Order Name", minWidth: 160, align:"center" },
   {
     id: "customer_name",
     label: "Customer Name",
-    minWidth: 170,
+    minWidth: 150,
+    align:"center"
   },
   {
     id: "location",
     label: "Location",
-    minWidth: 170,
+    minWidth: 150,
+    align:"center"
   },
   {
     id: "order_status",
     label: "Order Status",
-    minWidth: 170,
+    minWidth: 130,
+    align:"center"
   },
   {
     id: "delivered_time",
     label: "Delivered Time",
-    minWidth: 170,
+    minWidth: 130,
+    align:"center"
   },
   {
     id: "price",
     label: "Price",
+    minWidth: 80,
+  },
+  {
+    id: "order_detail",
+    label: "Order Detail",
     minWidth: 170,
+    align:'center'
   },
 ];
 
-function createData(order_id, order_name, customer_name, location,order_status,  delivered_time,price) {
-  return { order_id, order_name, customer_name, location,order_status, delivered_time, price };
+function createData(order_id, order_name, customer_name, location,order_status,  delivered_time,price, order_detail) {
+  return { order_id, order_name, customer_name, location,order_status, delivered_time, price, order_detail };
 }
 
-const rows = [
-  createData("1", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("2", "Mango Pie", 'Krisiten',"Old Town", <span className="canceled_order">Cancelled</span>, '10:05', 10),
-  createData("3", "Fried Edd Sandwich", 'Jack Suit',"Islambad", <span className="delivered_order">Delivered</span>, '10:05', 10),
-  createData("4", "Lemon Yogurt", 'Alesdro ',"Peshawar", <span className="delivered_order">Delivered</span>, '10:05', 10),
-  createData("5", "Spicy Grill Sanswich", 'Jacob Sahwny',"Lahore", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("6", "Sandwich", 'Jhon Leo',"Karachi", <span className="canceled_order">Cancelled</span>, '10:05', 10),
-  createData("7", "Spaghetti", 'Multan',"Ishtiaq Ahmad", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("8", "Fried Rice", 'Faisal Abad',"Sohail Ahmad", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("9", "Noodles", 'Jhon Leo',"M Ibrahim", <span className="delivered_order">Delivered</span>, '10:05', 10),
-  createData("10", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("11", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("12", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("13", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("14", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("15", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10),
-  createData("16", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10),
 
-  
-];
 
 
 const OrderList = () => {
+   const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
       const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const handleChangePage = (event, newPage) => {
@@ -86,8 +100,43 @@ const OrderList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const order_detail = (
+    <Button variant="contained" onClick={handleOpen} size="small" style={{background:"green"}}>Order Detail</Button>
+  )
+
+const rows = [
+  createData("1", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("2", "Mango Pie", 'Krisiten',"Old Town", <span className="canceled_order">Cancelled</span>, '10:05', 10, order_detail),
+  createData("3", "Fried Edd Sandwich", 'Jack Suit',"Islambad", <span className="delivered_order">Delivered</span>, '10:05', 10, order_detail),
+  createData("4", "Lemon Yogurt", 'Alesdro ',"Peshawar", <span className="delivered_order">Delivered</span>, '10:05', 10,order_detail ),
+  createData("5", "Spicy Grill Sanswich", 'Jacob Sahwny',"Lahore", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("6", "Sandwich", 'Jhon Leo',"Karachi", <span className="canceled_order">Cancelled</span>, '10:05', 10, order_detail),
+  createData("7", "Spaghetti", 'Multan',"Ishtiaq Ahmad", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("8", "Fried Rice", 'Faisal Abad',"Sohail Ahmad", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("9", "Noodles", 'Jhon Leo',"M Ibrahim", <span className="delivered_order">Delivered</span>, '10:05', 10, order_detail),
+  createData("10", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("11", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("12", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("13", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("14", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("15", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+  createData("16", "French Fries", 'Jhon Leo',"New Town", <span className="pending_order">Pending</span>, '10:05', 10, order_detail),
+
+  
+];
+
     return (
         <div className="order">
+        <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <OrderDetail />
+        </Box>
+      </Modal>
         <div className="order_head">
              <Typography variant="h6" component="div" gutterBottom>
           ORDER LIST
@@ -107,6 +156,7 @@ const OrderList = () => {
                     style={{ minWidth: column.minWidth }}
                   >
                     {column.label}
+                     
                   </StyledTableCell>
                 ))}
               </TableRow>
@@ -129,6 +179,7 @@ const OrderList = () => {
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}
+                              
                           </TableCell>
                         );
                       })}

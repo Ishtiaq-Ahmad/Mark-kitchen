@@ -17,7 +17,14 @@ import Divider from "@mui/material/Divider";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import AddProduct from "./AddProduct";
-import AddCategory from './AddCategory'
+import AddCategory from './AddCategory';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 
 const style = {
   position: "absolute",
@@ -78,20 +85,26 @@ export const categoryList = [
 ];
 
 const Categories = () => {
-    const [open, setOpen] = React.useState(false);
-     const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [_open, setOpen] = React.useState(false);
+  //    const [page, setPage] = React.useState(0);
+  // const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [state, setState] = React.useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+
+const { vertical, horizontal, open } = state;
+  const handleClick = (newState) => () => {
+    setState({ open: true, ...newState });
+  };
+   const handleClose = () => {
+    setState({ ...state, open: false });
+  };
+  
     const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const _handleClose = () => setOpen(false);
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
   return (
     <div style={{ padding:"20px"}}>
     <Typography variant="h4" gutterBottom component="div">
@@ -112,8 +125,8 @@ const Categories = () => {
         Add Category
       </Button>
        <Modal
-        open={open}
-        onClose={handleClose}
+        open={_open}
+        onClose={_handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -158,17 +171,45 @@ const Categories = () => {
                   <Button
                     size="small"
                     fullWidth
+                     onClick={handleOpen}
                     style={{ color: "black", background: "#fbbe36" }}
                   >
-                    See More
+                    Edit
                   </Button>
+                    <Button
+                    onClick={handleClick({
+       vertical: 'top',
+          horizontal: 'center',
+        })}
+                    size="small"
+                    fullWidth
+                    style={{ color: "black", background: "#fbbe36" }}
+                  >
+                    Delete
+                  </Button>
+                  
                 </CardActions>
               </Card>
             </Grid>
-          
+        
         );
       })
       }</Grid>
+        <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        onClose={handleClose}
+        // message="Do you want to reject this Order?"
+        key={vertical + horizontal}
+      >
+      <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
+    Do you want to Delete this Category?
+    <div style={{display:'flex', justifyContent:'space-between', marginTop:'10px'}}> 
+        <Button variant="contained" size='small' style={{background:'#ffff', color:'black'}} >Yes</Button>
+        <Button variant="contained" size='small' style={{background:'#ffff', color:'black'}}>No</Button>
+         </div>
+  </Alert>
+      </Snackbar>
     </div>
   );
 };

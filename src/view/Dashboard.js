@@ -7,6 +7,7 @@ import TotalOrder from "../component/charts/TotalOrder";
 import OrderTable from "../component/OrderTable";
 import RecentOrder from "../component/RecentOrder";
 import MonthlyRevenue from "../component/MonthlyRevenue";
+import OrderList from '../component/OrderList'
 
 const Dashboard = () => {
   return (
