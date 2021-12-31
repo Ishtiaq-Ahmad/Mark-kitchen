@@ -244,7 +244,7 @@ const rows = [
         key={vertical + horizontal}
       >
       <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
-    Do you want to Delete this Product?
+    Do you want to Delete this Product??
     <div style={{display:'flex', justifyContent:'space-between', marginTop:'10px'}}> 
         <Button variant="contained" size='small' style={{background:'#ffff', color:'black'}} >Yes</Button>
         <Button variant="contained" size='small' style={{background:'#ffff', color:'black'}}>No</Button>
