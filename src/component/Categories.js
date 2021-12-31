@@ -106,7 +106,7 @@ const { vertical, horizontal, open } = state;
   const _handleClose = () => setOpen(false);
 
   return (
-    <div style={{ padding:"20px"}}>
+    <div style={{ padding:'0px 20px 20px 20px'}}>
     <Typography variant="h4" gutterBottom component="div">
           Categories
         </Typography>

@@ -87,7 +87,7 @@ const Menu = () => {
       component="nav"
       aria-labelledby="nested-list-subheader"
     >
-    <Link to = "/" style={{ textDecoration:'none', color:'black' }}>
+    <Link to = "/home" style={{ textDecoration:'none', color:'black' }}>
       <ListItemButton color='red'>
         <ListItemIcon>
           <DashboardIcon style={{color:'black'}} />

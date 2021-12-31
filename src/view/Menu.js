@@ -3,39 +3,15 @@ import "../style/menu.scss";
 import Categories, { categoryList } from "../component/Categories";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Sidebar from '../component/Sidebar';
 
 const Menu = () => {
 
   return (
     <div className="menu_div">
+    <Sidebar/>
     <Categories/>
- {/* <Typography variant="h5" gutterBottom component="div">
-          Categories
-        </Typography>
-      <Grid container spacing={6}>
-  
-          
-            <Grid item xs={4}  xl={3}  >
-              <Categories />
-            </Grid>
-              <Grid item xs={4}  xl={3} >
-              <Categories />
-            </Grid>
-             <Grid item xs={4}  xl={3} >
-              <Categories />
-            </Grid>
-             <Grid item xs={4}  xl={3} >
-              <Categories />
-            </Grid>
-             <Grid item xs={4}  xl={3} >
-              <Categories />
-            </Grid>
-             <Grid item xs={4}  xl={3}>
-              <Categories />
-            </Grid> 
-        */}
-      
-      {/* </Grid>  */}
+ 
     </div> 
   );
 };

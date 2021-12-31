@@ -18,6 +18,7 @@ import Modal from "@mui/material/Modal";
 import AddProduct from "./AddProduct";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import Sidebar from './Sidebar'
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -156,6 +157,7 @@ const rows = [
 ];
   return (
     <div className="menu_div">
+    <Sidebar/>
       <Typography variant="h6" gutterBottom component="div">
         PRODUCT LIST
       </Typography>
