@@ -62,7 +62,7 @@ navigate('/home');
               />
               {/* <Link to="/home"> */}
               <Button type="submit" variant="contained"  
-              onClick={loginHandler}
+              onClick={loginHandler} style={{background:'#fbbe36', color:'black'}}
               >
                 Sign In
               </Button>
