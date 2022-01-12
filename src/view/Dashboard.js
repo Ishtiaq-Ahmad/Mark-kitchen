@@ -8,6 +8,8 @@ import OrderTable from "../component/OrderTable";
 import RecentOrder from "../component/RecentOrder";
 import MonthlyRevenue from "../component/MonthlyRevenue";
 import OrderList from '../component/OrderList'
+import SalesMenuItem from '../component/SalesMenuItem'
+import TestPurpose from '../component/TestPurpose'
 
 const Dashboard = () => {
   return (
@@ -37,6 +39,8 @@ const Dashboard = () => {
       <div className="dashboard_table">
         <OrderTable />
       </div>
+      <SalesMenuItem/>
+      {/* <TestPurpose/> */}
     </div>
   );
 };
