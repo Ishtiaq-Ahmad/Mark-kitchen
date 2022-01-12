@@ -10,6 +10,7 @@ import MonthlyRevenue from "../component/MonthlyRevenue";
 import OrderList from '../component/OrderList'
 import SalesMenuItem from '../component/SalesMenuItem'
 import TestPurpose from '../component/TestPurpose'
+import SalesByHour from '../component/SalesByHour'
 
 const Dashboard = () => {
   return (
@@ -40,7 +41,7 @@ const Dashboard = () => {
         <OrderTable />
       </div>
       <SalesMenuItem/>
-      {/* <TestPurpose/> */}
+      <SalesByHour/>
     </div>
   );
 };

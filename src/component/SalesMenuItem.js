@@ -276,23 +276,11 @@ export default function SalesMenuItem() {
          Ranking of which menu items are the most and least popular. Use this to see whih of your menu items are trending up or down over time. Note: this report does not include menu item additions like extra toppings.
         </Typography>
         </Grid>
-        <Grid item xs={3} md={2} style={{display:'flex', alignItems:"center"}}>
-          <Button  endIcon={<DownloadIcon />}>Download Report</Button>
+        <Grid item xs={3} md={2} style={{display:'flex', alignItems:"center", justifyContent:"flex-end"}}>
+          <Button endIcon={<DownloadIcon />}>Download Report</Button>
         </Grid>
        
       </Grid>
-        {/* <div style={{display:'flex', justifyContent:"space-between"}}>
-         <Typography
-          variant="body1"
-          component="div"
-          gutterBottom
-          style={{ padding: "10px 30px 0px 30px" }}
-        >
-         Ranking of which menu items are the most and least popular. Use this to see whih of your menu items are trending up or down over time. Note: this report does not include menu item additions like extra toppings.
-        </Typography>
-        <Button endIcon={<DownloadIcon />}>Download Report</Button>
-        </div> */}
-       
         <TableContainer>
           <Table
             sx={{ minWidth: 750 }}
