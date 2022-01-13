@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, Line, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, Tooltip, ResponsiveContainer, } from "recharts";
 import "../../style/dashboard.scss";
 import Typography from "@mui/material/Typography";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -77,8 +77,9 @@ const DailyeSale = () => {
       </Typography>
       <ResponsiveContainer width="100%" aspect={5 / 1}>
         <LineChart height={100} data={data}>
-          <Line type="monotone" dataKey="uv" stroke="#ca2129" strokeWidth={2} />
+          <Line type="monotone" dataKey="uv" stroke="#ca2129" strokeWidth={2}  />
           <Tooltip />
+          
         </LineChart>
       </ResponsiveContainer>
     </div>
