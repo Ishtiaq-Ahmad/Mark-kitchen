@@ -95,25 +95,25 @@ const legendRootStyle = {
   margin: 'auto',
   flexDirection: 'row',
 };
-const LegendRoot = props => (
-  <Legend.Root {...props} style={legendRootStyle} />
-);
+// const LegendRoot = props => (
+//   <Legend.Root {...props} style={legendRootStyle} />
+// );
 
 const legendItemStyle = {
   flexDirection: 'column',
   marginLeft: '-2px',
   marginRight: '-2px',
 };
-const LegendItem = props => (
-  <Legend.Item {...props} style={legendItemStyle} />
-);
+// const LegendItem = props => (
+//   <Legend.Item {...props} style={legendItemStyle} />
+// );
 
 const legendLabelStyle = {
   whiteSpace: 'nowrap',
 };
-const LegendLabel = props => (
-  <Legend.Label {...props} style={legendLabelStyle} />
-);
+// const LegendLabel = props => (
+//   <Legend.Label {...props} style={legendLabelStyle} />
+// );
 
 const formatTooltip = format('.1f');
 const TooltipContent = ({
@@ -256,12 +256,12 @@ export default class RevenueByHour extends React.PureComponent {
           {this.series}
 
           <Animation />
-          <Legend
+          {/* <Legend
             position="bottom"
             rootComponent={LegendRoot}
             itemComponent={LegendItem}
             labelComponent={LegendLabel}
-          />
+          /> */}
           <Stack stacks={stacks} />
           <EventTracker />
           <HoverState

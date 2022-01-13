@@ -6,10 +6,9 @@ import Customers from './view/Customers';
 import Order from './view/Order';
 import Info from './view/Info';
 import MenuList from './component/MenuList';
-import Categories from './component/Categories'
 import { Routes, Route} from "react-router-dom";
-import TestPurpose from './component/TestPurpose';
 import Login from './component/Login';
+import ProtectedRoute from './component/ProtectedRoute'
 
 function App() {
   return (
@@ -17,15 +16,24 @@ function App() {
     {/* <Login/> */}
     {/* <Home/> */}
       <Routes>
-      <Route path="/" element={<Login/>}/>
-       <Route path="/home" element={<Home/>}/>
-        {/* <Route path= "/dashboard"  element={<Dashboard/>} /> */}
+      <Route  exact path="/" element={<Login/>}/>
+
+      <Route element={<ProtectedRoute/>}>
+      <Route path="/home" element={<Home/>}/>
         <Route path= "/menu"  element={<Menu/>} />
         <Route path="/menu/categories" element={<Menu/>}/>
         <Route path="/menu/list" element={<MenuList/>}/>
         <Route path= "/customers"  element={<Customers/>} />
         <Route path= "/order"  element={<Order/>} />
         <Route path= "/info"  element={<Info/>} />
+      </Route>
+      
+       {/* <Route path="/home" element={<Home/>}/>  */}
+      {/* <Route  exact path="/login" element={<Login/>}/> */}
+      {/* <ProtectedRoute path="/home" element={<Home/>} isAuth={true} /> */}
+      
+        {/* <Route path= "/dashboard"  element={<Dashboard/>} /> */}
+        
       </Routes>
     </div>
   );
